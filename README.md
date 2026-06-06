@@ -61,6 +61,7 @@ Settings
 
 Mount ổ Z tới thư mục gốc hệ thống Linux.
 ![Bottle Config](Image/Bottle_Config_003.png)
+
 Mục đích:
 
 - Cho phép Office truy cập file từ hệ thống.
