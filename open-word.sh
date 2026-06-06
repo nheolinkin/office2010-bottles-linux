@@ -1,0 +1,16 @@
+#!/bin/bash
+FILE="$1
+if [ -z "$FILE" ]; then
+    flatpak run --command=bottles-cli com.usebottles.bottles run \
+    -b Office2010 \
+    -e "C:\Program Files\Microsoft Office\Office14\WINWORD.EXE"
+else
+WINPATH="Z:${FILE//\//\\}"
+WINPATH="\"$WINPATH\""
+echo "[$WINPATH]" >> /tmp/office.log
+flatpak run --command=bottles-cli com.usebottles.bottles run \
+  -b Office2010 \
+  -e "C:\Program Files\Microsoft Office\Office14\WINWORD.EXE" \
+  --args-replace \
+  "$WINPATH"
+fi
