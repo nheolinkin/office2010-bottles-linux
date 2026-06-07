@@ -92,7 +92,7 @@ và tiến hành cài đặt Microsoft Office 2010.
 
 ---
 
-# 5. Cài UniKey (Tùy chọn)
+# 5. Cài UniKey
 
 Tải từ website chính thức:
 
@@ -114,12 +114,12 @@ Programs
  └── Add Shortcut
 ```
 
-Tạo shortcut cho:
+Tạo shortcut cho ứng dụng:
 
 - Word
 - Excel
 - PowerPoint
-- UniKey
+- UniKey ...
 
 Sau đó nhấn dấu ba chấm (...) và chọn:
 
@@ -127,7 +127,7 @@ Sau đó nhấn dấu ba chấm (...) và chọn:
 Add Desktop Entry
 ```
 
-File Office nằm tại:
+File Office 2010 nằm tại:
 
 ```text
 C:\Program Files\Microsoft Office\Office14
@@ -163,21 +163,6 @@ File:
 open-word.sh
 ```
 
-```bash
-#!/bin/bash
-
-FILE="$1"
-
-WINPATH="Z:${FILE//\//\\}"
-WINPATH="\"$WINPATH\""
-
-flatpak run --command=bottles-cli com.usebottles.bottles run \
-  -b Office2010 \
-  -e "C:\Program Files\Microsoft Office\Office14\WINWORD.EXE" \
-  --args-replace \
-  "$WINPATH"
-```
-
 ### Excel
 
 File:
@@ -186,22 +171,7 @@ File:
 open-excel.sh
 ```
 
-```bash
-#!/bin/bash
-
-FILE="$1"
-
-WINPATH="Z:${FILE//\//\\}"
-WINPATH="\"$WINPATH\""
-
-flatpak run --command=bottles-cli com.usebottles.bottles run \
-  -b Office2010 \
-  -e "C:\Program Files\Microsoft Office\Office14\EXCEL.EXE" \
-  --args-replace \
-  "$WINPATH"
-```
-
----
+Có thể tạo các file tương tự cho các ứng dụng khác tuỳ nhu cầu
 
 ## Cài đặt Script
 
@@ -258,42 +228,16 @@ Exec=/home/<username>/.local/bin/open-excel.sh %f
 
 Sau đó lưu lại.
 
+(Thực hiện tương tự với các ứng dụng khác)
 ---
 
-# Kết quả
-
-Sau khi hoàn tất:
-
-- Microsoft Word mở trực tiếp từ File Manager.
-- Microsoft Excel mở trực tiếp từ File Manager.
-- Không còn lỗi đường dẫn của Flatpak.
-- Hỗ trợ mở file bằng:
-  - Double click
-  - Open With...
-  - Recent Files
-  - File Manager
-
-![Kết quả](Image/Bottle_final.png)
-
----
-
-# Tệp đi kèm
-
-Repository bao gồm:
-
-```text
-README.md
-office2010.yml
-open-word.sh
-open-excel.sh
-Image/
-```
+# HOÀN THÀNH
 
 ---
 
 # Ghi chú
 
-Dự án được xây dựng và kiểm thử trên:
+Dự án được xây dựng và kiểm thử trên môi trường:
 
 - Arch Linux
 - Gnome
