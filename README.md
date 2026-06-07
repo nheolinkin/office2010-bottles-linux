@@ -229,9 +229,27 @@ Exec=/home/<username>/.local/bin/open-excel.sh %f
 Sau đó lưu lại.
 
 (Thực hiện tương tự với các ứng dụng khác)
+
 ---
 
-# HOÀN THÀNH
+# ⚠️ CẬP NHẬT QUAN TRỌNG
+
+---
+# NGÀY 07/06/2026
+Runner POL 8.2 xuất hiện hiện tượng crash khi tương tác với cửa sổ, lưu file, và làm việc với các đối tượng hình ảnh như shape...
+
+## Giải pháp: Chuyển sang runner Wine 7.0
+Tải và cài runner:
+```ini
+mkdir -p ~/.var/app/com.usebottles.bottles/data/bottles/runners/wine-7.0 && \
+wget https://github.com/Kron4ek/Wine-Builds/releases/download/7.0/wine-7.0-x86.tar.xz \
+-O /tmp/wine-7.0-x86.tar.xz && \
+tar -xJf /tmp/wine-7.0-x86.tar.xz \
+-C ~/.var/app/com.usebottles.bottles/data/bottles/runners/wine-7.0 \
+--strip-components=1 && \
+rm /tmp/wine-7.0-x86.tar.xz
+```
+Truy cập Bottle đã cài Office 2010, chuyển đổi Runner sang Wine 7.0 và tiếp tục sử dụng bình thường 
 
 ---
 
