@@ -237,6 +237,10 @@ Sau đó lưu lại.
 
 # Ghi chú
 
+> [!WARNING]  
+> **(LƯU Ý)** <br>
+> Đổi tên Bottle, tên Username trong các file script và các dòng lệnh tương ứng với thiết bị của mình trước khi sử dụng.
+
 Môi trường kiểm thử:
 
 - Arch Linux
