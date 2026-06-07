@@ -1,5 +1,5 @@
 #!/bin/bash
-FILE="$1
+FILE="$1"
 if [ -z "$FILE" ]; then
     flatpak run --command=bottles-cli com.usebottles.bottles run \
     -b Office2010 \
