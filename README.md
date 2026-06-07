@@ -237,10 +237,12 @@ Sau đó lưu lại.
 
 # Ghi chú
 
-Dự án được xây dựng và kiểm thử trên môi trường:
+Môi trường kiểm thử:
 
 - Arch Linux
 - Gnome
 - Bottles (Flatpak)
 - Wine Runner: PlayOnLinux 8.2
 - Microsoft Office 2010 Pro Plus VL 32-bit
+
+Nguồn thao khảo và file Bottle Config từ: https://github.com/Rustring/MsOffice-On-WineBottles-Improved
