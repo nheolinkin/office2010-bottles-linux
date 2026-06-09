@@ -239,7 +239,7 @@ Sau đó lưu lại.
 Runner POL 8.2 xuất hiện hiện tượng crash khi tương tác với cửa sổ, lưu file, và làm việc với các đối tượng hình ảnh như shape...
 
 ## Giải pháp: Chuyển sang runner Wine 7.0
-Tải và cài runner:
+Tải và cài runner Wine 7.0:
 ```ini
 mkdir -p ~/.var/app/com.usebottles.bottles/data/bottles/runners/wine-7.0 && \
 wget https://github.com/Kron4ek/Wine-Builds/releases/download/7.0/wine-7.0-x86.tar.xz \
@@ -250,6 +250,23 @@ tar -xJf /tmp/wine-7.0-x86.tar.xz \
 rm /tmp/wine-7.0-x86.tar.xz
 ```
 Truy cập Bottle đã cài Office 2010, chuyển đổi Runner sang Wine 7.0 và tiếp tục sử dụng bình thường 
+---
+# NGÀY 09/06/2026
+
+## Test các phiên bản Wine runner từ 7.0 đến 7.22 (Loại trừ các bản lân cận từ 5 đến 8 do đều gặp lỗi khi mở file)
+- Kết quả cho thấy: Việc vẽ các đối tượng đồ họa gây crash bắt đầu từ bản 7.20 do đó quyết định sử dụng bản 7.19 với UI tương thích tốt hơn và fix lỗi thiếu ổn định khi gõ Tiếng Việt
+- Ngoài ra cần test thêm để kiểm chứng việc script đổi đường dẫn hiện tại có thực sự gây crash khi mở nhiều file từ ngoài Bottle do việc khỏi tạo instance mới (CHƯA KHẮC PHỤC). Tạm thời khởi chạy ứng dụng từ Bottle và test thêm.
+
+Tải và cài runner Wine 7.19:
+```ini
+mkdir -p ~/.var/app/com.usebottles.bottles/data/bottles/runners/wine-7.19 && \
+wget https://github.com/Kron4ek/Wine-Builds/releases/download/7.19/wine-7.19-x86.tar.xz \
+-O /tmp/wine-7.19-x86.tar.xz && \
+tar -xJf /tmp/wine-7.19-x86.tar.xz \
+-C ~/.var/app/com.usebottles.bottles/data/bottles/runners/wine-7.19 \
+--strip-components=1 && \
+rm /tmp/wine-7.19-x86.tar.xz
+```
 
 ---
 
