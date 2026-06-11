@@ -1,25 +1,25 @@
 #!/bin/bash
 
-# Khai báo tên Bottle
+# Bottle name
 BOTTLE_NAME="office2010"
 
-# Lấy đường dẫn gốc từ tham số %f của .desktop
+# Get the original path from the %f argument passed by the .desktop file
 FILE="$1"
 
-# BƯỚC 1: KIỂM TRA TIẾN TRÌNH
+# STEP 1: CHECK RUNNING PROCESS
 APP_IS_RUNNING=0
 if pgrep -f -i "WINWORD.EXE" > /dev/null; then
     APP_IS_RUNNING=1
 fi
 
-# BƯỚC 2: KHỞI CHẠY ỨNG DỤNG
+# STEP 2: LAUNCH APPLICATION
 # -------------------------------------------------------------
-# TRƯỜNG HỢP 1: Không có file truyền vào
+# CASE 1: No file passed as argument
 # -------------------------------------------------------------
 if [ -z "$FILE" ]; then
     if [ $APP_IS_RUNNING -eq 1 ]; then
-        # Tạo thêm một trang trắng mới lồng vào Instance đang chạy thông qua start.exe
-        # Tránh trường hợp mở Instance độc lập gây sập ứng dụng đang hoạt động.
+        # Create a new blank document inside the existing running instance via start.exe
+        # Prevent launching a separate instance that could crash the active application.
         flatpak run --command=bottles-cli com.usebottles.bottles run \
             -b "$BOTTLE_NAME" \
             -e "C:\windows\command\start.exe" \
@@ -33,22 +33,22 @@ if [ -z "$FILE" ]; then
 fi
 
 # -------------------------------------------------------------
-# TRƯỜNG HỢP 2: Có file truyền vào
+# CASE 2: A file was passed as argument
 # -------------------------------------------------------------
-# Thay thế toàn bộ dấu gạch chéo (/) thành dấu gạch chéo ngược (\) chuẩn Windows
+# Replace all forward slashes (/) with Windows-style backslashes (\)
 WINPATH="Z:${FILE//\//\\}"
 
-# Bọc toàn bộ đường dẫn trong dấu nháy kép (") để xử lý khoảng trắng và ký tự đặc biệt
+# Wrap the entire path in double quotes (") to handle spaces and special characters
 WINPATH="\"$WINPATH\""
 
 if [ $APP_IS_RUNNING -eq 1 ]; then
-    # Nếu ứng dụng đã chạy, gọi start.exe để nạp file vào cửa sổ hiện tại
+    # If the application is already running, use start.exe to load the file into the existing window
     flatpak run --command=bottles-cli com.usebottles.bottles run \
         -b "$BOTTLE_NAME" \
         -e "C:\windows\command\start.exe" \
         --args "$WINPATH"
 else
-    # Nếu ứng dụng chưa chạy, nạp file theo cách mặc định
+    # If the application is not running, open the file using the default method
     flatpak run --command=bottles-cli com.usebottles.bottles run \
         -b "$BOTTLE_NAME" \
         -p WINWORD \
