@@ -1,3 +1,7 @@
+<meta name="google-site-verification" content="eo_b1xV27spOjQRyCrBy2xkRx9D37z1fpF5tve-bA4o" />
+
+[![English](https://img.shields.io/badge/Language-English-blue?style=flat)](README.en.md)
+[![Tiếng Việt](https://img.shields.io/badge/Ngôn%20ngữ-Tiếng%20Việt-red?style=flat)](README.md)
 # Microsoft Office 2010 trên Linux bằng Bottles
 
 Hướng dẫn cài đặt Microsoft Office 2010 bằng Bottles kết hợp Flatseal trên Linux, đồng thời xử lý triệt để lỗi mở file trực tiếp từ bên ngoài môi trường Flatpak Sandbox.
@@ -235,6 +239,7 @@ Sau đó lưu lại.
 # ⚠️ CẬP NHẬT QUAN TRỌNG
 
 ---
+
 # NGÀY 07/06/2026
 Runner POL 8.2 xuất hiện hiện tượng crash khi tương tác với cửa sổ, lưu file, và làm việc với các đối tượng hình ảnh như shape...
 
@@ -250,7 +255,9 @@ tar -xJf /tmp/wine-7.0-x86.tar.xz \
 rm /tmp/wine-7.0-x86.tar.xz
 ```
 Truy cập Bottle đã cài Office 2010, chuyển đổi Runner sang Wine 7.0 và tiếp tục sử dụng bình thường 
+
 ---
+
 # NGÀY 09/06/2026
 
 ## Test các phiên bản Wine runner từ 7.0 đến 7.22 (Loại trừ các bản lân cận từ 5 đến 6 do đều gặp lỗi khi mở file)
@@ -267,6 +274,7 @@ tar -xJf /tmp/wine-7.19-x86.tar.xz \
 --strip-components=1 && \
 rm /tmp/wine-7.19-x86.tar.xz
 ```
+
 ---
 
 # NGÀY 11/06/2026
