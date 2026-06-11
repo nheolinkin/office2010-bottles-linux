@@ -267,6 +267,14 @@ tar -xJf /tmp/wine-7.19-x86.tar.xz \
 --strip-components=1 && \
 rm /tmp/wine-7.19-x86.tar.xz
 ```
+---
+
+# NGÀY 11/06/2026
+
+## Cập nhật script đổi đường dẫn
+- Kết quả test cho thấy: Việc khởi tạo instance mới mỗi lần mở file sẽ gây sập toàn bộ hệ thống wine
+- Giải pháp: Kiểm tra ứng dụng đã chạy hay chưa trước khi mở file. Nếu đã có tiến trình đang chạy, sử dụng start.exe để truyền file vào tiến trình có sẵn để tránh khởi tạo thêm instance mới
+- Ngoài ra việc mở quá nhiều file đặc biệt là mở file có liên kết dữ liệu với nhau có thể gây quá tải cho wineserver => HẠN CHẾ CỦA WINE
 
 ---
 
